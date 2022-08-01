@@ -1,1 +1,1 @@
-echo hello Orazgali!
+echo Hello orazali!
