@@ -1,1 +1,2 @@
-ls -a | lls | ls -lt | ls -p | ls --format=commas \ tr -d " "
+ls -a | ls | ls -lt | ls -p | ls --format=commas | tr -d " "
+
