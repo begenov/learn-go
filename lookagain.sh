@@ -1,3 +1,4 @@
- 1 #! bin/bash
- 2
- 3 find . -type f -name "*.sh"
+#! bin/bash
+
+find . -type f -name "*.sh" | sort -r
+
