@@ -1,4 +1,5 @@
 #! bin/bash
 
-echo 12
+find . -type f | wc -l
+
 
