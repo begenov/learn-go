@@ -1,3 +1,4 @@
 #! bin/bash
 
-ls | cad -l
+ls -l | sed 'n;d'
+
