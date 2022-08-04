@@ -1,4 +1,4 @@
-module main.com
+module piscine
 
 go 1.17
 
