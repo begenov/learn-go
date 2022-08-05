@@ -1,8 +1,8 @@
 package piscine
 
-import "fmt"
+import "fgithub.com/01-edu/z01"
 
 func PointOne(n *int) {
 	*n = 1
-	fmt.Print(n)
+	z01.PrintRune(n)
 }
