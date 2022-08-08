@@ -2,8 +2,8 @@ package piscine
 
 func IterativeFactorial(nb int) int {
 	count := 1
-	for i := 0; i < nb-1; i++ {
-		count *= nb
+	for i := 1; i < nb+1; i++ {
+		count *= i
 	}
 	return count
 }
