@@ -8,10 +8,10 @@ func IterativePower(nb int, power int) int {
 	} else if power == 0 {
 		return 1
 	} else {
-		res := 1
+		count := 1
 		for i := 0; i < power; i++ {
-			res *= nb
+			count *= nb
 		}
-		return res
+		return count
 	}
 }
