@@ -4,6 +4,8 @@ func IterativePower(nb int, power int) int {
 	if nb < 0 || nb == 1 {
 		return 1
 	} else if 1 == power {
+		return nb
+	} else if power == 0 {
 		return 1
 	} else {
 		res := 1
