@@ -10,8 +10,7 @@ func RecursiveFactorial(nb int) int {
 	fac := nb * RecursiveFactorial(nb-1)
 	if fac < 0 {
 		return 0
-	} else if fac == 0 {
+	} else {
 		return fac
 	}
-	return fac
 }
