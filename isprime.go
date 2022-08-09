@@ -1,11 +1,17 @@
-package main
+package piscine
 
-import (
-	"fmt"
-	"piscine"
-)
+func IsPrime(nb int) bool {
 
-func main() {
-	fmt.Println(piscine.IsPrime(5))
-	fmt.Println(piscine.IsPrime(4))
+	if nb < 0 || nb == 0 || nb == 1 {
+		return false
+	} else if  nb == 2 || nb == 3 {
+		return true
+	}
+	for i := 2; i < nb; i++ {
+		count := nb%i
+		if count == 0 {
+			return false
+		}
+	}
+	return true
 }
