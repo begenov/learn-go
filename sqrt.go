@@ -1,6 +1,6 @@
-package main
+package piscine
 
-func Sqrt(nb int) int  {
+func Sqrt(nb int) int {
 	if nb <= 0 {
 		return 0
 	} else if nb == 1 {

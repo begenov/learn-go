@@ -9,4 +9,3 @@ func RecursivePower(nb int, power int) int {
 		return nb * RecursivePower(nb, power-1)
 	}
 }
-
