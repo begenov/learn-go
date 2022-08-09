@@ -1,13 +1,4 @@
-package main
-
-import (
-	"fmt"
-)
-func main() {
-	fmt.Println(Index("Hello!", "l"))
-	fmt.Println(Index("Salut!", "alu"))
-	fmt.Println(Index("Ola!", "hOl"))
-}
+package piscine
 
 func Index(s string, toFind string) int {
 	if len(s) == 0 {
