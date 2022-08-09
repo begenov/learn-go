@@ -6,7 +6,7 @@ func Prime(nb int) bool {
 	} else if nb == 2 || nb == 3 {
 		return true
 	}
-	for i := 2; i < nb/2 + 1; i++ {
+	for i := 2; i < nb/2+1; i++ {
 		count := nb % i
 		if count == 0 {
 			return false
@@ -15,11 +15,9 @@ func Prime(nb int) bool {
 	return true
 }
 
-
-
 func FindNextPrime(nb int) int {
-	for ;  ;nb++ {
-		if Prime(nb){
+	for ; ; nb++ {
+		if Prime(nb) {
 			return nb
 		}
 	}
