@@ -1,10 +1,10 @@
 package piscine
 
+import "unicode"
+
 func IsLower(s string) bool {
 	for _, i := range s {
-		if i >= 'A' && i <= 'Z' {
-			return false
-		} else if i <= 'a' || i >= 'z' {
+		if !unicode.IsLower(i) {
 			return false
 		}
 	}
