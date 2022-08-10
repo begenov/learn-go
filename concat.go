@@ -1,12 +1,4 @@
-package main
-
-import (
-	"fmt"
-)
-
-func main() {
-	fmt.Println(Concat("Hello!", " How are you?"))
-}
+package piscine
 
 func Concat(str1 string, str2 string) string {
 	a := str1 + str2
