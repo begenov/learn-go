@@ -1,12 +1,20 @@
-package piscine
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	fmt.Println(IsUpper("HELLO"))
+	fmt.Println(IsUpper("HELLO!"))
+}
 
 func IsUpper(s string) bool {
-	a := []rune(s)
-	for _, i := range a {
+	for _, i := range s {
 		if i >= 'a' && i <= 'z' {
-			if i >= '!' || i <= '+' {
-				return false
-			}
+			return false
+		} else if i <= 'A' || i >= 'Z' {
+			return false
 		}
 	}
 	return true
