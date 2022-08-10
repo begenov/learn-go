@@ -1,8 +1,9 @@
 package piscine
 
 func IsPrintable(s string) bool {
-	for _, i := range s {
-		if (i < 'a' || i > 'z') && (i < 'A' || i > 'Z') {
+	arr := []rune(s)
+	for i := range arr {
+		if arr[i] >= 0 && arr[i] <= 31 {
 			return false
 		}
 	}
