@@ -15,6 +15,6 @@ func main() {
 		fmt.Println("Too many arguments")
 	} else {
 		file, _ := ioutil.ReadFile(arg[0])
-		fmt.Println(string(file))
+		fmt.Print(string(file))
 	}
 }
