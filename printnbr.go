@@ -1,5 +1,7 @@
 package piscine
 
+import "github.com/01-edu/z01"
+
 func oraz(n int) {
 	count := '0'
 	if n == 0 {
@@ -23,6 +25,5 @@ func PrintNbr(n int) {
 	if n < 0 {
 		z01.PrintRune('-')
 	}
-	for i := 
 	oraz(n)
 }
