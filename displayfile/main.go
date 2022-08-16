@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"os"
 )
 
@@ -10,9 +11,10 @@ func main() {
 
 	if len(arg) == 0 {
 		fmt.Println("File name missing")
-	} else if len(arg) == 2 {
+	} else if len(arg) > 1 {
 		fmt.Println("Too many arguments")
 	} else {
-		fmt.Println("Almost there!!")
+		file, _ := ioutil.ReadFile(arg[0])
+		fmt.Println(string(file))
 	}
 }
