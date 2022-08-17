@@ -1,13 +1,6 @@
-package main
+package piscine
 
-import (
-	"fmt"
-)
-
-func main() {
-	a := []int{1, 2, 3, 4, 5, 6}
-	ForEach(PrintNbr, a)
-}
+import "fmt"
 
 func ForEach(f func(int), a []int) {
 	for _, i := range a {
