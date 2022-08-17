@@ -1,6 +1,6 @@
 package piscine
 
-import "fmt"
+// import "fmt"
 
 func ForEach(f func(int), a []int) {
 	for _, i := range a {
@@ -27,10 +27,10 @@ func ForEach(f func(int), a []int) {
 // 	fmt.Println(count)
 // }
 
-func PrintNbr(n int) {
-	count := 1
-	for i := 1; i < n; i++ {
-		count++
-	}
-	fmt.Print(count)
-}
+// func PrintNbr(n int) {
+// 	count := 1
+// 	for i := 1; i < n; i++ {
+// 		count++
+// 	}
+// 	fmt.Print(count)
+// }
