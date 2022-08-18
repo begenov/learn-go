@@ -1,6 +1,11 @@
 package piscine
 
 func ActiveBits(n int) int {
-	n = n / 2
-	return n
+	count := 0
+	for n > 0 {
+		count += (n % 2)
+		n = n / 2
+
+	}
+	return count
 }
