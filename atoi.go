@@ -1,19 +1,19 @@
-package main
+package piscine
 
-import (
-	"fmt"
-)
+// import (
+// 	"fmt"
+// )
 
-func main() {
-	fmt.Println(Atoi("12345"))
-	fmt.Println(Atoi("0000000012345"))
-	fmt.Println(Atoi("012 345"))
-	fmt.Println(Atoi("Hello World!"))
-	fmt.Println(Atoi("+1234"))
-	fmt.Println(Atoi("-1234"))
-	fmt.Println(Atoi("++1234"))
-	fmt.Println(Atoi("--1234"))
-}
+// func main() {
+// 	fmt.Println(Atoi("12345"))
+// 	fmt.Println(Atoi("0000000012345"))
+// 	fmt.Println(Atoi("012 345"))
+// 	fmt.Println(Atoi("Hello World!"))
+// 	fmt.Println(Atoi("+1234"))
+// 	fmt.Println(Atoi("-1234"))
+// 	fmt.Println(Atoi("++1234"))
+// 	fmt.Println(Atoi("--1234"))
+// }
 
 // func Atoi(s string) int {
 // 	count := 0
@@ -36,11 +36,11 @@ func main() {
 
 func Atoi(s string) int {
 	count := 0
-	for k := 0; k < len(s)-1; k++ {
-		if s[k] == '+' || s[k] == '-' {
-			continue
-		}
-	}
+	// for k := 0; k < len(s)-1; k++ {
+	// 	if s[k] == '+' || s[k] == '-' {
+	// 		continue
+	// 	}
+	// }
 
 	for i := range s {
 		if (s[0] == '-' || s[0] == '+') && i == 0 {
