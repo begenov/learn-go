@@ -1,19 +1,19 @@
-package piscine
+package main
 
-// import (
-// 	"fmt"
-// )
+import (
+	"fmt"
+)
 
-// func main() {
-// 	fmt.Println(Atoi("12345"))
-// 	fmt.Println(Atoi("0000000012345"))
-// 	fmt.Println(Atoi("012 345"))
-// 	fmt.Println(Atoi("Hello World!"))
-// 	fmt.Println(Atoi("+1234"))
-// 	fmt.Println(Atoi("-1234"))
-// 	fmt.Println(Atoi("++1234"))
-// 	fmt.Println(Atoi("--1234"))
-// }
+func main() {
+	fmt.Println(Atoi("12345"))
+	fmt.Println(Atoi("0000000012345"))
+	fmt.Println(Atoi("012 345"))
+	fmt.Println(Atoi("Hello World!"))
+	fmt.Println(Atoi("+1234"))
+	fmt.Println(Atoi("-1234"))
+	fmt.Println(Atoi("++1234"))
+	fmt.Println(Atoi("--1234"))
+}
 
 // func Atoi(s string) int {
 // 	count := 0
@@ -35,25 +35,40 @@ package piscine
 // }
 
 func Atoi(s string) int {
-	count := 0
-	// for k := 0; k < len(s)-1; k++ {
-	// 	if s[k] == '+' || s[k] == '-' {
-	// 		continue
-	// 	}
-	// }
+	runes := []rune(s)
+	LenRune := 0
+	result := 0
+	for i := range runes {
+		LenRune = i + 1
+	}
+	if LenRune == 0 {
+		return 0
+	}
 
-	for i := range s {
-		if (s[0] == '-' || s[0] == '+') && i == 0 {
+	tens := 1
+	for k := 0; k < LenRune-1; k++ {
+		if runes[k] == '+' || runes[k] == '-' {
 			continue
 		}
-		if s[i] < '0' || s[i] > '9' {
+		tens *= 10
+	}
+
+	for i := range runes {
+		if (runes[0] == '-' || runes[0] == '+') && i == 0 {
+			continue
+		}
+		if runes[i] < '0' || runes[i] > '9' {
 			return 0
 		}
-		count *= 10
-		count += int(s[i] - 48)
+		numb := 0
+		for j := '0'; j < runes[i]; j++ {
+			numb++
+		}
+		result += numb * tens
+		tens /= 10
 	}
-	if s[0] == '-' {
-		count *= -1
+	if runes[0] == '-' {
+		result *= -1
 	}
-	return count
+	return result
 }
