@@ -1,13 +1,15 @@
-package main
+package piscine
 
-import (
-	"fmt"
-)
+// package main
 
-func main() {
-	steps := CollatzCountdown(12)
-	fmt.Println(steps)
-}
+// import (
+// 	"fmt"
+// )
+
+// func main() {
+// 	steps := CollatzCountdown(12)
+// 	fmt.Println(steps)
+// }
 
 // func CollatzCountdown(start int) int {
 // 	count := 0
