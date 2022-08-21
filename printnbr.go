@@ -19,6 +19,7 @@ func oraz(n int) {
 		oraz(n / 10)
 	}
 	z01.PrintRune(count)
+	return
 }
 
 func PrintNbr(n int) {
