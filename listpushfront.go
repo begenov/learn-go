@@ -1,26 +1,5 @@
 package piscine
 
-// package main
-
-// import (
-// 	"fmt"
-// )
-
-// func main() {
-// 	link := &List{}
-
-// 	ListPushFront(link, "Hello")
-// 	ListPushFront(link, "man")
-// 	ListPushFront(link, "how are you")
-
-// 	it := link.Head
-// 	for it != nil {
-// 		fmt.Print(it.Data, " ")
-// 		it = it.Next
-// 	}
-// 	fmt.Println()
-// }
-
 type NodeL struct {
 	Data interface{}
 	Next *NodeL
@@ -32,13 +11,10 @@ type List struct {
 }
 
 func ListPushFront(l *List, data interface{}) {
-	n := new(NodeL)
-	n.Data = data
 	if l.Head == nil {
-		l.Head = n
-		l.Tail = l.Head
+		l.Head, l.Tail = &NodeL{Data: data}, l.Head
 	} else {
-		n.Next = l.Head
-		l.Head = n
+		newNode := &NodeL{Data: data}
+		newNode.Next, l.Head = l.Head, newNode
 	}
 }
