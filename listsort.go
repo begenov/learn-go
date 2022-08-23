@@ -1,8 +1,13 @@
 package piscine
 
-type NodeI struct {
-	Data int
-	Next *NodeI
+type NodeL struct {
+	Data interface{}
+	Next *NodeL
+}
+
+type List struct {
+	Head *NodeL
+	Tail *NodeL
 }
 
 func ListSort(l *NodeI) *NodeI {
