@@ -1,15 +1,32 @@
 package piscine
 
-func ListMerge(l1 *List, l2 *List) {
-	if l2 == nil || l1 == nil {
-		return
+type NodeI struct {
+	Data int
+	Next *NodeI
+}
+
+func ListSort(l *NodeI) *NodeI {
+	cmpt := 0
+	var first *NodeI
+
+	if l == nil || l.Next == nil {
+		return l
 	}
 
-	if l1.Head == nil {
-		l1.Head = l2.Head
-		l1.Tail = l2.Head
-		return
-	}
+	for l != nil {
+		next := l.Next
+		if cmpt == 0 {
+			first = l
+			cmpt++
+		}
 
-	l1.Tail.Next = l2.Head
+		for next != nil {
+			if l.Data > next.Data {
+				l.Data, next.Data = next.Data, l.Data
+			}
+			next = next.Next
+		}
+		l = l.Next
+	}
+	return first
 }
