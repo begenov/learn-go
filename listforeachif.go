@@ -78,15 +78,15 @@ func ListForEachIf(l *List, f func(*NodeL), comp func(*NodeL) bool) {
 // 	}
 // }
 
-// type NodeL struct {
-// 	Data interface{}
-// 	Next *NodeL
-// }
+type NodeL struct {
+	Data interface{}
+	Next *NodeL
+}
 
-// type List struct {
-// 	Head *NodeL
-// 	Tail *NodeL
-// }
+type List struct {
+	Head *NodeL
+	Tail *NodeL
+}
 
 func IsPositiveNode(node *NodeL) bool {
 	switch node.Data.(type) {
