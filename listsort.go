@@ -41,10 +41,10 @@ package piscine
 // 	PrintList(ListSort(link))
 // }
 
-// type NodeI struct {
-// 	Data int
-// 	Next *NodeI
-// }
+type NodeI struct {
+	Data int
+	Next *NodeI
+}
 
 func ListSort(l *NodeI) *NodeI {
 	cmpt := 0
