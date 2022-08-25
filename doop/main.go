@@ -3,56 +3,79 @@ package main
 import (
 	"fmt"
 	"os"
-	"strconv"
-
-	"github.com/01-edu/z01"
 )
 
-func validateOperator(test string) bool {
-	op := []string{"+", "-", "*", "/", "%"}
-	for _, res := range op {
-		if res == test {
-			return true
+func Atoi(s string) int {
+	var validate bool
+	num := 0
+
+	if s[0] == '-' {
+		s = s[1:]
+		validate = true
+	}
+	for _, w := range s {
+
+		if w < '0' || w > '9' {
+			os.Exit(0)
+		}
+
+		num = num*10 + int(w) - '0'
+	}
+	if validate {
+		num = num * -1
+	}
+	return num
+}
+
+func IsNumeric(s string) bool {
+	for _, letter := range s {
+		if letter < '0' || letter > '9' {
+			return false
 		}
 	}
-	return false
+	return true
 }
 
 func main() {
-	args := os.Args[1:]
-	if len(args) > 3 || len(args) < 3 {
-		fmt.Print()
-	} else {
-		if !validateOperator(args[1]) {
-			fmt.Println(0)
-		} else {
-			premier, _ := strconv.Atoi(args[0])
-			second, _ := strconv.Atoi(args[2])
+	arg := os.Args[1:]
+	if len(arg) != 3 {
+		return
+	}
 
-			if args[1] == "%" && second == 0 {
-				fmt.Print("No Modulo by 0\n")
-			} else if args[1] == "/" && second == 0 {
-				printstr()
-			} else if args[1] == "+" {
-				fmt.Println(premier + second)
-			} else if args[1] == "-" {
-				fmt.Println(premier - second)
-			} else if args[1] == "*" {
-				fmt.Println(premier * second)
-			} else if args[1] == "/" {
-				fmt.Println(premier / second)
-			} else {
-				fmt.Println(premier % second)
+	num1 := Atoi(arg[0])
+	num2 := Atoi(arg[2])
+	op := arg[1]
+
+	if (num1 > 20000000 || num2 > 20000000) || (num1 < -20000000 || num2 < -20000000) {
+		return
+	}
+
+	if num1 > 0 && num2 > 0 && num1+num2 < 0 {
+		return
+	}
+
+	if IsNumeric(arg[0]) || IsNumeric(arg[2]) {
+		switch op {
+		case "+":
+			fmt.Println(num1 + num2)
+		case "-":
+			fmt.Println(num1 - num2)
+		case "*":
+			fmt.Println(num1 * num2)
+		case "/":
+			if num2 == 0 {
+				fmt.Println("No division by 0")
+				return
 			}
-
+			fmt.Println(num1 / num2)
+		case "%":
+			if num2 == 0 {
+				fmt.Println("No modulo by 0")
+				return
+			}
+			fmt.Println(num1 % num2)
 		}
+	} else {
+		return
 	}
-}
-
-func printstr() {
-	a := "No modulo by 0"
-	for _, i := range a {
-		z01.PrintRune(i)
-	}
-	z01.PrintRune('\n')
 }
