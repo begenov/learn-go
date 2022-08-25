@@ -1,25 +1,31 @@
 package piscine
 
-import (
-	"github.com/01-edu/z01"
-)
+import "reflect"
 
-func BTreeApplyByLevel(root *TreeNode, fn interface{}) {
-	novo := BTreeLevelCount(root)
-	for d := 1; d <= novo; d++ {
-		PrintNodesLevel(root, d, fn)
+func printOrderTraversal(root *TreeNode, niveau int, fn interface{}) {
+	if root == nil {
+		return
+	}
+	if niveau == 1 {
+		Invoke(fn, root.Data)
+	} else if niveau > 1 {
+		printOrderTraversal(root.Left, niveau-1, fn)
+		printOrderTraversal(root.Right, niveau-1, fn)
 	}
 }
 
-func PrintNodesLevel(root *TreeNode, level int, fn interface{}) {
-	if root != nil {
-		if level == 1 {
-			ar := []interface{}{root.Data}
-			z01.Call(fn, ar)
-
-		} else if level > 1 {
-			PrintNodesLevel(root.Left, level-1, fn)
-			PrintNodesLevel(root.Right, level-1, fn)
-		}
+func BTreeApplyByLevel(root *TreeNode, fn interface{}) {
+	h := BTreeLevelCount(root)
+	for i := 1; i <= h; i++ {
+		printOrderTraversal(root, i, fn)
 	}
+}
+
+func Invoke(fn interface{}, args ...string) {
+	v := reflect.ValueOf(fn)
+	rargs := make([]reflect.Value, len(args))
+	for i, a := range args {
+		rargs[i] = reflect.ValueOf(a)
+	}
+	v.Call(rargs)
 }
