@@ -5,77 +5,81 @@ import (
 	"os"
 )
 
-func Atoi(s string) int {
-	var validate bool
-	num := 0
-
-	if s[0] == '-' {
-		s = s[1:]
-		validate = true
-	}
-	for _, w := range s {
-
-		if w < '0' || w > '9' {
-			os.Exit(0)
+func operations(num1 int, num2 int, oper string) {
+	result := 0
+	if oper == "+" || oper == "\"+\"" {
+		result = num1 + num2
+		if num1 == 9223372036854775807 {
+			return
 		}
-
-		num = num*10 + int(w) - '0'
+		fmt.Println(result)
 	}
-	if validate {
-		num = num * -1
-	}
-	return num
-}
-
-func IsNumeric(s string) bool {
-	for _, letter := range s {
-		if letter < '0' || letter > '9' {
-			return false
+	if oper == "-" || oper == "\"-\"" {
+		result = num1 - num2
+		if num1 == -9223372036854775807 {
+			return
 		}
+		fmt.Println(result)
 	}
-	return true
+	if oper == "/" || oper == "\"/\"" {
+		if num2 == 0 {
+			fmt.Println("No division by 0")
+			return
+		}
+		result = num1 / num2
+		fmt.Println(result)
+	}
+	if oper == "*" || oper == "\"*\"" {
+		result = num1 * num2
+		if num1 == 9223372036854775807 {
+			return
+		}
+		fmt.Println(result)
+	}
+	if oper == "%" || oper == "\"%\"" {
+		if num2 == 0 {
+			fmt.Println("No modulo by 0")
+			return
+		}
+		result = num1 % num2
+		fmt.Println(result)
+	}
 }
 
 func main() {
-	arg := os.Args[1:]
-	if len(arg) != 3 {
-		return
-	}
-
-	num1 := Atoi(arg[0])
-	num2 := Atoi(arg[2])
-	op := arg[1]
-
-	if (num1 > 20000000 || num2 > 20000000) || (num1 < -20000000 || num2 < -20000000) {
-		return
-	}
-
-	if num1 > 0 && num2 > 0 && num1+num2 < 0 {
-		return
-	}
-
-	if IsNumeric(arg[0]) || IsNumeric(arg[2]) {
-		switch op {
-		case "+":
-			fmt.Println(num1 + num2)
-		case "-":
-			fmt.Println(num1 - num2)
-		case "*":
-			fmt.Println(num1 * num2)
-		case "/":
-			if num2 == 0 {
-				fmt.Println("No division by 0")
+	args := os.Args[1:]
+	num1 := 0
+	num2 := 0
+	u := false
+	o := false
+	if len(args) == 3 {
+		for _, arg1 := range args[0] {
+			if arg1 == 45 {
+				u = true
+				continue
+			}
+			if (arg1 < '0' || arg1 > '9') && arg1 != 45 {
 				return
 			}
-			fmt.Println(num1 / num2)
-		case "%":
-			if num2 == 0 {
-				fmt.Println("No modulo by 0")
-				return
-			}
-			fmt.Println(num1 % num2)
+			num1 = (num1*10 + int((arg1 - 48)))
 		}
-	} else {
-		return
+		if u {
+			num1 *= -1
+		}
+		for _, arg2 := range args[2] {
+			if arg2 == 45 {
+				o = true
+				continue
+			}
+			if (arg2 < '0' || arg2 > '9') && arg2 != 45 {
+				return
+			}
+			num2 = (num2*10 + int((arg2 - 48)))
+		}
+		if o {
+			num2 *= -1
+		}
+		operations(num1, num2, args[1])
+
 	}
 }
