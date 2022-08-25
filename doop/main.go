@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+
+	"github.com/01-edu/z01"
 )
 
 func validateOperator(test string) bool {
@@ -30,7 +32,7 @@ func main() {
 			if args[1] == "%" && second == 0 {
 				fmt.Print("No Modulo by 0\n")
 			} else if args[1] == "/" && second == 0 {
-				fmt.Print("No division by 0\n")
+				printstr()
 			} else if args[1] == "+" {
 				fmt.Println(premier + second)
 			} else if args[1] == "-" {
@@ -45,4 +47,12 @@ func main() {
 
 		}
 	}
+}
+
+func printstr() {
+	a := "No modulo by 0"
+	for _, i := range a {
+		z01.PrintRune(i)
+	}
+	z01.PrintRune('\n')
 }
