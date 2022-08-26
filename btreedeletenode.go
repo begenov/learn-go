@@ -1,4 +1,22 @@
-package piscine
+package main
+
+import (
+	"fmt"
+	"piscine"
+)
+
+func main() {
+	root := &TreeNode{Data: "4"}
+	BTreeInsertData(root, "1")
+	BTreeInsertData(root, "7")
+	piscine.BTreeInsertData(root, "5")
+	node := BTreeSearchItem(root, "4")
+	fmt.Println("Before delete:")
+	piscine.BTreeApplyInorder(root, fmt.Println)
+	root = BTreeDeleteNode(root, node)
+	fmt.Println("After delete:")
+	BTreeApplyInorder(root, fmt.Println)
+}
 
 func BTreeDeleteNode(root, node *TreeNode) *TreeNode {
 	if node == nil {
