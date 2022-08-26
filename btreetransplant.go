@@ -5,15 +5,15 @@ func BTreeTransplant(root, node, rplc *TreeNode) *TreeNode {
 		return nil
 	}
 
-	replacement := node
-	if node.Parent == nil {
-		root = rplc
-	} else if node == node.Parent.Left {
-		replacement.Parent.Left = rplc
-	} else {
-		replacement.Parent.Right = rplc
+	if root.Left != nil && root.Left == node {
+		root.Left = rplc
+		root.Left.Parent = root
 	}
-	replacement.Parent = node.Parent
-
+	if root.Right != nil && root.Right == node {
+		root.Right = rplc
+		root.Right.Parent = root
+	}
+	BTreeTransplant(root.Left, node, rplc)
+	BTreeTransplant(root.Right, node, rplc)
 	return root
 }
