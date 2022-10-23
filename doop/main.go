@@ -1,8 +1,9 @@
 package main
 
 import (
-	"fmt"
 	"os"
+
+	"github.com/01-edu/z01"
 )
 
 func main() {
@@ -15,15 +16,31 @@ func main() {
 	ar := args[1]
 	switch ar {
 	case "+":
-		fmt.Println(n1 + n2)
+		str := n1 + n2
+		res := Itoa(str)
+		print(res)
 	case "-":
-		fmt.Println(n1 - n2)
+		str := n1 - n2
+		res := Itoa(str)
+		print(res)
 	case "*":
-		fmt.Println(n1 * n2)
+		str := n1 * n2
+		res := Itoa(str)
+		print(res)
 	case "/":
-		fmt.Println(n1 / n2)
+		str := n1 / n2
+		res := Itoa(str)
+		print(res)
 	case "%":
-		fmt.Println(n1 % n2)
+		str := n1 % n2
+		res := Itoa(str)
+		print(res)
+	}
+}
+
+func print(s string) {
+	for _, v := range s {
+		z01.PrintRune(v)
 	}
 }
 
